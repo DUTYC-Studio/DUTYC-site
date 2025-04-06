@@ -422,6 +422,39 @@
         .next {
             right: 30px;
         }
+        /* 懒加载相关样式 */
+        .lazy {
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .lazy.loaded {
+            opacity: 1;
+        }
+
+        /* 添加占位背景色 */
+        .photo-item {
+            background-color: #f0f0f0;
+            position: relative;
+        }
+
+        /* 可选：添加加载指示器 */
+        .loading-indicator {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: #0077cc;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
     </style>
 </head>
 <body>
@@ -463,7 +496,7 @@
         <div class="photo-gallery">
             <!-- 图片1 -->
             <div class="photo-item">
-                <img src="/egimg/IMG_2290.JPG" alt="山脉风光">
+                <img data-src="/egimg/IMG_2290.JPG" alt="山脉风光" class="lazy">
                 <div class="photo-overlay">
                     <h3 class="photo-title"></h3>
                     <p class="photo-meta"></p>
@@ -472,7 +505,7 @@
 
             <!-- 图片2 -->
             <div class="photo-item">
-                <img src="/egimg/IMG_1979.JPG" alt="城市夜景">
+                <img data-src="/egimg/IMG_1979.JPG" alt="城市夜景" class="lazy">
                 <div class="photo-overlay">
                     <h3 class="photo-title"></h3>
                     <p class="photo-meta"></p>
@@ -481,7 +514,7 @@
 
             <!-- 图片3 -->
             <div class="photo-item">
-                <img src="/egimg/IMG_2293.JPG" alt="人像摄影">
+                <img data-src="/egimg/IMG_2293.JPG" alt="人像摄影" class="lazy">
                 <div class="photo-overlay">
                     <h3 class="photo-title"></h3>
                     <p class="photo-meta"></p>
@@ -490,7 +523,7 @@
 
             <!-- 图片4 -->
             <div class="photo-item">
-                <img src="/egimg/IMG_2295.JPG" alt="产品摄影">
+                <img data-src="/egimg/IMG_2295.JPG" alt="产品摄影" class="lazy">
                 <div class="photo-overlay">
                     <h3 class="photo-title"></h3>
                     <p class="photo-meta"></p>
@@ -499,7 +532,7 @@
 
             <!-- 图片5 -->
             <div class="photo-item">
-                <img src="/egimg/IMG_2297.JPG" alt="建筑摄影">
+                <img data-src="/egimg/IMG_2297.JPG" alt="建筑摄影" class="lazy">
                 <div class="photo-overlay">
                     <h3 class="photo-title"></h3>
                     <p class="photo-meta"></p>
@@ -508,7 +541,7 @@
 
             <!-- 图片6 -->
             <div class="photo-item">
-                <img src="/egimg/IMG_1203.JPG" alt="时尚摄影">
+                <img data-src="/egimg/IMG_1203.JPG" alt="时尚摄影" class="lazy">
                 <div class="photo-overlay">
                     <h3 class="photo-title"></h3>
                     <p class="photo-meta"></p>
@@ -517,7 +550,7 @@
 
             <!-- 图片7 -->
             <div class="photo-item">
-                <img src="/egimg/IMG_1789.JPG" alt="自然摄影">
+                <img data-src="/egimg/IMG_1789.JPG" alt="自然摄影" class="lazy">
                 <div class="photo-overlay">
                     <h3 class="photo-title"></h3>
                     <p class="photo-meta"></p>
@@ -526,7 +559,7 @@
 
             <!-- 图片8 -->
             <div class="photo-item">
-                <img src="/egimg/IMG_1964.JPG" alt="宠物摄影">
+                <img data-src="/egimg/IMG_1964.JPG" alt="宠物摄影" class="lazy">
                 <div class="photo-overlay">
                     <h3 class="photo-title"></h3>
                     <p class="photo-meta"></p>
@@ -535,7 +568,7 @@
 
             <!-- 图片9 -->
             <div class="photo-item">
-                <img src="/egimg/IMG_1965.JPG" alt="美食摄影">
+                <img data-src="/egimg/IMG_1965.JPG" alt="美食摄影" class="lazy">
                 <div class="photo-overlay">
                     <h3 class="photo-title"></h3>
                     <p class="photo-meta"></p>
@@ -544,7 +577,7 @@
 
             <!-- 图片10 -->
             <div class="photo-item">
-                <img src="/egimg/IMG_1966.JPG" alt="建筑摄影">
+                <img data-src="/egimg/IMG_1966.JPG" alt="建筑摄影" class="lazy">
                 <div class="photo-overlay">
                     <h3 class="photo-title"></h3>
                     <p class="photo-meta"></p>
@@ -553,7 +586,7 @@
 
             <!-- 图片11 -->
             <div class="photo-item">
-                <img src="/egimg/IMG_1969.JPG" alt="产品摄影">
+                <img data-src="/egimg/IMG_1969.JPG" alt="产品摄影" class="lazy">
                 <div class="photo-overlay">
                     <h3 class="photo-title"></h3>
                     <p class="photo-meta"></p>
@@ -562,7 +595,7 @@
 
             <!-- 图片12 -->
             <div class="photo-item">
-                <img src="/egimg/IMG_1970.JPG" alt="人像摄影">
+                <img data-src="/egimg/IMG_1970.JPG" alt="人像摄影" class="lazy">
                 <div class="photo-overlay">
                     <h3 class="photo-title"></h3>
                     <p class="photo-meta"></p>
@@ -571,7 +604,7 @@
 
             <!-- 图片13 -->
             <div class="photo-item">
-                <img src="/egimg/IMG_1971.JPG" alt="时尚摄影">
+                <img data-src="/egimg/IMG_1971.JPG" alt="时尚摄影" class="lazy">
                 <div class="photo-overlay">
                     <h3 class="photo-title"></h3>
                     <p class="photo-meta"></p>
@@ -580,7 +613,7 @@
 
             <!-- 图片14 -->
             <div class="photo-item">
-                <img src="/egimg/IMG_1978.JPG" alt="自然摄影">
+                <img data-src="/egimg/IMG_1978.JPG" alt="自然摄影" class="lazy">
                 <div class="photo-overlay">
                     <h3 class="photo-title"></h3>
                     <p class="photo-meta"></p>
@@ -589,7 +622,7 @@
 
             <!-- 图片15 -->
             <div class="photo-item">
-                <img src="/egimg/IMG_1980.JPG" alt="城市摄影">
+                <img data-src="/egimg/IMG_1980.JPG" alt="城市摄影" class="lazy">
                 <div class="photo-overlay">
                     <h3 class="photo-title"></h3>
                     <p class="photo-meta"></p>
@@ -598,7 +631,7 @@
 
             <!-- 图片16 -->
             <div class="photo-item">
-                <img src="/egimg/IMG_1986.JPG" alt="产品摄影">
+                <img data-src="/egimg/IMG_1986.JPG" alt="产品摄影" class="lazy">
                 <div class="photo-overlay">
                     <h3 class="photo-title"></h3>
                     <p class="photo-meta"></p>
@@ -607,7 +640,7 @@
 
             <!-- 图片17 -->
             <div class="photo-item">
-                <img src="/egimg/IMG_1987.JPG" alt="人像摄影">
+                <img data-src="/egimg/IMG_1987.JPG" alt="人像摄影" class="lazy">
                 <div class="photo-overlay">
                     <h3 class="photo-title"></h3>
                     <p class="photo-meta"></p>
@@ -616,7 +649,7 @@
 
             <!-- 图片18 -->
             <div class="photo-item">
-                <img src="/egimg/IMG_1989.JPG" alt="建筑摄影">
+                <img data-src="/egimg/IMG_1989.JPG" alt="建筑摄影" class="lazy">
                 <div class="photo-overlay">
                     <h3 class="photo-title"></h3>
                     <p class="photo-meta"></p>
@@ -657,7 +690,7 @@
         <span class="close-modal">&times;</span>
         <div class="nav-arrow prev" onclick="navigate(-1)">&#10094;</div>
         <div class="modal-content">
-            <img id="expandedImg" class="modal-image" src="" alt="">
+            <img id="expandedImg" class="modal-image" data-src="" alt="">
             <div class="modal-details">
                 <div class="modal-info">
                     <h3 id="modalTitle" class="modal-title"></h3>
@@ -690,7 +723,22 @@
         });
 
         function openModal(element) {
-            const imgSrc = element.querySelector('img').src;
+            const lazyImg = element.querySelector('img.lazy'); // 修改1：获取带lazy类的图片
+            let imgSrc;
+
+            // 修改2：处理懒加载图片的两种情况
+            if (lazyImg.src) {
+                // 如果图片已通过懒加载完成加载
+                imgSrc = lazyImg.src;
+            }
+            else if (lazyImg.dataset.src) {
+                // 如果图片还未加载，直接从data-src获取
+                imgSrc = lazyImg.dataset.src;
+                // 强制触发图片加载（避免全屏查看时图片未加载）
+                lazyImg.src = imgSrc;
+                lazyImg.classList.add("loaded");
+            }
+
             const title = element.querySelector('.photo-title').textContent;
             const meta = element.querySelector('.photo-meta').textContent;
 
@@ -699,7 +747,7 @@
             modalTitle.textContent = title;
             modalMeta.textContent = meta;
 
-            // 设置下载按钮的下载属性
+            // 修改3：更新下载按钮逻辑（保持不变）
             downloadBtn.onclick = function() {
                 const a = document.createElement('a');
                 a.href = imgSrc;
@@ -709,7 +757,6 @@
                 document.body.removeChild(a);
             };
 
-            // 阻止背景滚动
             document.body.style.overflow = "hidden";
         }
 
@@ -779,6 +826,86 @@
                     document.querySelector('.page-button.active').classList.remove('active');
                     this.classList.add('active');
                 }
+            });
+        });
+    </script>
+    <script>
+        // 懒加载实现
+        document.addEventListener("DOMContentLoaded", function() {
+            const lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+
+            if ("IntersectionObserver" in window) {
+                // 使用IntersectionObserver API（现代浏览器）
+                const lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            const lazyImage = entry.target;
+                            lazyImage.src = lazyImage.dataset.src;
+                            lazyImage.classList.add("loaded");
+                            lazyImageObserver.unobserve(lazyImage);
+
+                            // 移除加载指示器
+                            const loadingIndicator = lazyImage.parentElement.querySelector('.loading-indicator');
+                            if (loadingIndicator) {
+                                loadingIndicator.remove();
+                            }
+                        }
+                    });
+                });
+
+                lazyImages.forEach(function(lazyImage) {
+                    // 添加加载指示器
+                    const loadingIndicator = document.createElement('div');
+                    loadingIndicator.className = 'loading-indicator';
+                    lazyImage.parentElement.appendChild(loadingIndicator);
+
+                    lazyImageObserver.observe(lazyImage);
+                });
+            } else {
+                // 回退方案（老旧浏览器）
+                let active = false;
+
+                const lazyLoad = function() {
+                    if (active === false) {
+                        active = true;
+
+                        setTimeout(function() {
+                            lazyImages.forEach(function(lazyImage) {
+                                if ((lazyImage.getBoundingClientRect().top <= window.innerHeight && lazyImage.getBoundingClientRect().bottom >= 0) && getComputedStyle(lazyImage).display !== "none") {
+                                    lazyImage.src = lazyImage.dataset.src;
+                                    lazyImage.classList.add("loaded");
+
+                                    lazyImages = lazyImages.filter(function(image) {
+                                        return image !== lazyImage;
+                                    });
+
+                                    if (lazyImages.length === 0) {
+                                        document.removeEventListener("scroll", lazyLoad);
+                                        window.removeEventListener("resize", lazyLoad);
+                                        window.removeEventListener("orientationchange", lazyLoad);
+                                    }
+                                }
+                            });
+
+                            active = false;
+                        }, 200);
+                    }
+                };
+
+                document.addEventListener("scroll", lazyLoad);
+                window.addEventListener("resize", lazyLoad);
+                window.addEventListener("orientationchange", lazyLoad);
+                lazyLoad();
+            }
+
+            // 确保全屏查看时使用的是高清大图
+            document.querySelectorAll('.photo-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    const lazyImg = this.querySelector('img.lazy');
+                    if (lazyImg && !lazyImg.src) {
+                        lazyImg.src = lazyImg.dataset.src;
+                    }
+                });
             });
         });
     </script>
